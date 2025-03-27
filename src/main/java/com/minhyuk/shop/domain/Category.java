@@ -1,6 +1,5 @@
 package com.minhyuk.shop.domain;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,19 +10,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "Gender")
-public class Gender {
+@Builder
+@Entity(name = "Category")
+public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    //성별 아이디
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 카테고리 아이디
+    private Long id;
 
-    @Column(name = "gender_Kind", nullable = false)
-    private String kind; //성별 종류
+    @Column(name = "category_Kind", nullable = false) // 카테고리 종류
+    private String kind;
     
 }

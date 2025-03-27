@@ -22,7 +22,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 권한 아이디
     private Long id;
 
-    @Column(nullable = false) // 권한 종류
-    private String kind;
+    @Column(name = "role_kind", nullable = false)
+    private String kind;                        //권한 종류
 
 }

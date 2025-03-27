@@ -23,15 +23,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_User;
+    private Long id_User;   //사용자 아이디
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_Role", nullable = false)
     @ToString.Exclude
-    private Role role;        //사용자 권한
-
-    @Column(nullable = false)
-    private int id_Gender;   
+    private Role role;        //사용자 권한 
     
     @ManyToOne
     @JoinColumn(name = "id_Gender", nullable = false)

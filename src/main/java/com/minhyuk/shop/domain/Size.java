@@ -1,6 +1,5 @@
 package com.minhyuk.shop.domain;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,20 +9,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.ToString;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "Gender")
-public class Gender {
+@Builder
+@Entity(name = "Size")
+public class Size {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    //성별 아이디
+    private Long id;                                     // 사이즈 아이디
 
-    @Column(name = "gender_Kind", nullable = false)
-    private String kind; //성별 종류
+    @Column(name = "size_Kind")
+    @ToString.Exclude
+    private String size;                                // 사이즈 종류
     
 }
