@@ -1,0 +1,22 @@
+# 서버 포트번호
+server:
+  port: 8088
+
+spring:
+  application:
+    name: SHOP
+
+  output:
+    ansi:
+      enabled: always
+
+  upload:
+   path: upload
+
+  #datasource설정
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shopdatabases?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: shop
+    password: 1234
+ 

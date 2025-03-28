@@ -50,8 +50,8 @@ public class Product {
     @Column(nullable = false)
     private int quantity;                       // 상품수량
 
-    @Column(nullable = false)
-    private LocalDateTime created_At;           // 상품등록시간
+    @Column(name = "created_At",nullable = false)
+    private LocalDateTime regdate;           // 상품등록시간
 
 
 

@@ -29,13 +29,11 @@ public class Image {
     @ToString.Exclude
     private Product product;            // 상품 아이디
 
-    @Column(nullable = false)
+    
     private String name;                // 이미지
-
-    @Column(nullable = false)
+    
     private String url;                 // 이미지 url
 
-    @Column(nullable = false)
     private String dir;                 // 이미지 dir
 
 
