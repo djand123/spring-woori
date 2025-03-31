@@ -34,7 +34,7 @@ public class Image {
     
     private String url;                 // 이미지 url
 
-    private String dir;                 // 이미지 dir
+    private String dir;                 // 이미지 dir 경로
 
 
 
