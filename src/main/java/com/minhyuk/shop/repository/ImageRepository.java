@@ -11,5 +11,8 @@ public interface ImageRepository extends JpaRepository <Image, Long>{
     
     //제품으로 이미지 찾기
     List<Image> findByProduct(Product product);
+
+    //제품으로 이미지 삭제하기
+    void deleteByProduct(Product product);
     
 }

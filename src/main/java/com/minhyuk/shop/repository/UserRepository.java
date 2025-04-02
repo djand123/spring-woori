@@ -8,6 +8,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
     //이메일 중복체크
     Boolean existsByemail(String email);
 
+    
+
 
     
 }

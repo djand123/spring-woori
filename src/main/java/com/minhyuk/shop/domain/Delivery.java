@@ -19,6 +19,7 @@ public class Delivery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Delivery")
     private Long id;                 //배송지의 아이디
 
     @Column(nullable = true)

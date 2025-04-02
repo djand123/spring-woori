@@ -23,7 +23,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_User;   //사용자 아이디
+    @Column(name = "id_User")
+    private Long id;   //사용자 아이디
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_Role", nullable = false)

@@ -1,7 +1,8 @@
 package com.minhyuk.shop.domain;
 
 import java.time.LocalDateTime;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -51,7 +53,7 @@ public class Product {
     private int quantity;                       // 상품수량
 
     @Column(name = "created_At",nullable = false)
-    private LocalDateTime regdate;           // 상품등록시간
+    private LocalDateTime regdate;              // 상품등록시간
 
 
 

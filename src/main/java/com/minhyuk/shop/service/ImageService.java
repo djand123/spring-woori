@@ -30,7 +30,7 @@ public class ImageService {
     @Value("${file.upload-dir}")
     private String uploadDir;       // yml에서 설정한 경로 
 
-    private ImageRepository imageRepository;
+    private final ImageRepository imageRepository;
 
     //이미지 보기
 
@@ -102,6 +102,19 @@ public class ImageService {
             System.out.println("파일이 존재하지 않습니다.");
         }
 
+    }
+
+    @Transactional
+    public void deleteByProduct(Product product){
+        List<Image> images = imageRepository.findByProduct(product);
+        for(Image image : images){
+            File file = new File(image.getDir(), image.getName());
+            if(file.exists()){
+                file.delete();
+            }
+        }
+        
+        imageRepository.deleteByProduct(product);
     }
 
     
