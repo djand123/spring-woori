@@ -15,5 +15,6 @@ public interface UserDeliveryRepository extends JpaRepository<UserDelivery,Long>
     //사용자Id로 전체 배송정보 가져오기
     List<UserDelivery> findByUser_IdOrderByRegdateDesc(Long userId);
 
-    
+    //배송지 ID로 삭제하기
+    void deleteByDelivery_Id(Long deliveryId);
 }

@@ -24,5 +24,8 @@ public class Delivery {
 
     @Column(nullable = true)
     private String type;            //배송지
+
+    @Column(nullable = true)
+    private String name;
     
 }

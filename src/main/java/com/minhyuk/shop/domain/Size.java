@@ -26,4 +26,5 @@ public class Size {
     @ToString.Exclude
     private String size;                                // 사이즈 종류
     
+    
 }
