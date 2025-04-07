@@ -20,6 +20,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
     List<Product> findByGender(Gender gender);
 
     //상품 아이디로 상품 찾기
-    Product findByid(Long id);
+    // Product findByid(Long id);
 
 }

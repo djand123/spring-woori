@@ -22,18 +22,14 @@ public class UserDeliveryService {
     private final UserDeliveryRepository userDeliveryRepository;
     private final DeliveryRepository deliveryRepository;
 
-    //고객 배송현황 5개 최신순
+    //배송지 조회
     @Transactional
-    public List<UserDelivery> deliveryTop5(Long userId){
-        List<UserDelivery> listTop5 = userDeliveryRepository.findTop5ByUser_IdOrderByRegdateDesc(userId);
-        return listTop5;
-    }
+    public List<UserDelivery> showUserDelivery(Long userId){
+        User user = userRepository.findById(userId)
+        .orElseThrow(()-> new IllegalArgumentException("해당하는 유저가 없습니다"));
 
-    // 고객 전체 배송현황 조회
-    @Transactional
-    public List<UserDelivery> deliveryAll(Long userId){
-        List<UserDelivery> listAll = userDeliveryRepository.findByUser_IdOrderByRegdateDesc(userId);
-        return listAll;
+        // 해당 유저의 배송지
+        return userDeliveryRepository.findByUser(user);
     }
 
     //배송지 추가
@@ -54,7 +50,6 @@ public class UserDeliveryService {
         userDeliveryRepository.save(userDelivery);
 
     }
-
 
 
     // 배송지 삭제

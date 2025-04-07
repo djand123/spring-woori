@@ -30,7 +30,6 @@ public class ProductService {
     // 상품 등록
     @Transactional
     public long create(Product product, MultipartFile[] files, List<Long> sizeIds) throws IOException{
-        // product.setCategory(categoryRepository.findById(null));
 
         //카테고리의 아이디를 가져와서 product의 category아이디로 설정
         product.setCategory(categoryRepository.findById(product.getCategory().getId())
@@ -47,7 +46,7 @@ public class ProductService {
         //사이즈를 중간테이블에 저장
         for(Long sizeId :sizeIds ){
             Size size = sizeRepository.findById(sizeId)
-            .orElseThrow(()-> new IllegalArgumentException("해당 사이즈가 없다"));
+            .orElseThrow(()-> new IllegalArgumentException("해당 사이즈가 없습니다"));
 
             ProductSize productSize = new ProductSize();
             productSize.setProduct(product);
@@ -60,9 +59,8 @@ public class ProductService {
 
     //상품 삭제
     @Transactional
-    public String delete(Long productId){
+    public void delete(Long productId){
         productRepository.deleteById(productId);
-        return "delete OK";
     }
 
     // 상품 수정
@@ -78,16 +76,12 @@ public class ProductService {
         product.setPrice(updateProduct.getPrice());
         product.setInfo(updateProduct.getInfo());
         product.setQuantity(updateProduct.getQuantity());
-
-        //카테고리와 성별을 업데이트 할때
-        // product.setCategory(updateProduct.getCategory());   유효성 검증하지 않음 
-
+ 
         // 카테고리 유효성 검증과 설정
         if(updateProduct.getCategory() != null){
             product.setCategory(categoryRepository.findById(updateProduct.getCategory().getId())
             .orElseThrow(() -> new IllegalArgumentException("해당 카테고리가 없습니다.")));
         }
-
 
         //성별 유효성 검사와 업데이트
         if(updateProduct.getGender() != null){
@@ -97,8 +91,6 @@ public class ProductService {
 
         //사이즈 정보 업데이트
         //해당하는 상품의 ProductSize를 전부 삭제하고 새로 등록
-        productRepository.deleteById(productId); 
-
         productSizeRepository.deleteByProduct(product);
 
         for(Long sizeId : sizeIds){
@@ -147,7 +139,8 @@ public class ProductService {
     //상품 한개 선택하기
     @Transactional
     public Product findproductById(Long productId){
-        Product product = productRepository.findByid(productId);
+        Product product = productRepository.findById(productId)
+        .orElseThrow(()-> new IllegalArgumentException("해당하는 상품이 없습니다"));
         return product;
     }
 

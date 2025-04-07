@@ -1,5 +1,7 @@
 package com.minhyuk.shop.domain;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,5 +25,13 @@ public class UserDelivery {
     @JoinColumn(name = "id_Delivery")
     @ToString.Exclude
     private Delivery delivery;
+
+    @Column(nullable = false)
+    private LocalDateTime created;
+
+    @PrePersist
+    public void prePersist(){
+        this.created = LocalDateTime.now();
+    }
     
 }

@@ -1,5 +1,7 @@
 package com.minhyuk.shop.domain;
 
+import java.util.Optional;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,9 +38,6 @@ public class User {
     @ToString.Exclude
     private Gender gender;      //사용자 성별
     
-    @Column(nullable = false)
-    private String name;        //사용자 이름
-
     @Column(nullable = false)
     private String email;       //사용자 이메일
 

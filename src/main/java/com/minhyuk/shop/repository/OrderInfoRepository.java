@@ -9,7 +9,10 @@ import com.minhyuk.shop.domain.User;
 
 public interface OrderInfoRepository extends JpaRepository<OrderInfo, Long>{
     
-    // 6개의 주문정보 조회
-    List<OrderInfo> findTop6ByUserOrderByRegdateDesc(User user);
+    // 8개의 주문정보 조회
+    List<OrderInfo> findTop8ByUserOrderByRegdateDesc(User user);
+
+    //고객배송현황 3개 조회
+    List<OrderInfo> findTop3ByUserOrderByRegdateDesc(User user);
 
 }
