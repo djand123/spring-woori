@@ -33,12 +33,12 @@ public class OrderInfoService {
     //고객배송현황 3개 조회(최신순)
     @Transactional
     public List<OrderInfo> OrderInfoTop5(User user){
-        return orderInfoRepository.findTop3ByUserOrderByRegdateDesc(user);
+        return orderInfoRepository.findTop3ByUserOrderByRegDateDesc(user);
     }
 
     //조회시 고객배송현황 8개 조회
     public List<OrderInfo> OrderInfoTop8(User user){
-        return orderInfoRepository.findTop8ByUserOrderByRegdateDesc(user);
+        return orderInfoRepository.findTop8ByUserOrderByRegDateDesc(user);
     } 
     
     

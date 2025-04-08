@@ -118,23 +118,39 @@ public class ProductService {
     //카테고리별 상품 보기(성별)
     @Transactional
     public List<Product> findProductByCategory (Category category, Gender gender){
-        List<Product> products = productRepository.findByCategoryAndGenderOrderByRegdateDesc(category, gender);
+        List<Product> products = productRepository.findByCategoryAndGenderOrderByRegDateDesc(category, gender);
         return products;
     }
 
     //전체 상품보기 (성별)
     @Transactional
-    public List<Product> findAllProduct (Gender gender){
+    public List<Product> findAllProductByGender (Gender gender){
         List<Product> products = productRepository.findByGender(gender);
+        return products;
+    }
+
+    //전체 상품보기
+    @Transactional
+    public List<Product> findAllProduct(){
+        List<Product> products = productRepository.findAll();
         return products;
     }
 
     //최신 상품보기(성별)
     @Transactional
-    public List<Product> find6Productregdate(Gender gender){
-        List<Product> products = productRepository.findTop6ByGenderOrderByRegdateDesc(gender);
+    public List<Product> find6ProductregdateByGender(Gender gender){
+        List<Product> products = productRepository.findTop6ByGenderOrderByRegDateDesc(gender);
         return products;
     }
+
+    //최신 상품보기(전체)
+    @Transactional
+    public List<Product> find6Productregdate(){
+        List<Product> products = productRepository.findTop6ByOrderByRegDateDesc();
+        return products;
+    }
+
+
 
     //상품 한개 선택하기
     @Transactional

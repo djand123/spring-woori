@@ -55,9 +55,9 @@ public class Product {
     @Column(name = "created_At",nullable = false)
     private LocalDateTime regdate;              // 상품등록시간
 
-    public Product orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    // public Product orElseThrow(Object object) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
     }
 
 
@@ -67,5 +67,3 @@ public class Product {
     
 
 
-    
-}

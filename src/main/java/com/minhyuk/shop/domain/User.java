@@ -44,5 +44,10 @@ public class User {
     @Column(nullable = false)
     private String password;       //사용자 이메일
 
+    public User orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
+
     
 }

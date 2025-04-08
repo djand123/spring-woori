@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.minhyuk.shop.domain.Gender;
 import com.minhyuk.shop.domain.Role;
 import com.minhyuk.shop.domain.User;
 import com.minhyuk.shop.repository.GenderRepository;
@@ -42,9 +43,11 @@ public class UserService {
 
         user.setRole(role);
 
+        Gender gender = genderRepository.findById(user.getGender().getId())
+        .orElseThrow(()-> new IllegalArgumentException("해당하는 성별이 없습니다"));
+
         //성별 설정
-        user.setGender(genderRepository.findById(user.getGender().getId())
-        .orElseThrow(()-> new IllegalArgumentException("해당하는 성별이 없습니다")));
+        user.setGender(gender);
 
         //비밀번호 암호화로 저장
         user.setPassword(passwordEncoder.encode(user.getPassword()));
