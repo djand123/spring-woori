@@ -20,7 +20,9 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 권한 아이디
+    @Column(name = "id_Role")
     private Long id;
+
 
     @Column(name = "role_kind", nullable = false)
     private String kind;                        //권한 종류

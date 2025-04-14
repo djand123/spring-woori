@@ -34,8 +34,8 @@ public class UserDeliveryService {
 
     //배송지 추가
     @Transient
-    public void createAddress(Long userId, String address, String name){
-
+    public UserDelivery createAddress(Long userId, String address, String name){
+        
         User user = userRepository.findById(userId)
         .orElseThrow(()->new IllegalArgumentException(" 해당하는 유저가 없습니다"));
 
@@ -49,12 +49,14 @@ public class UserDeliveryService {
         userDelivery.setDelivery(delivery);
         userDeliveryRepository.save(userDelivery);
 
+        return userDelivery;
+
     }
 
 
     // 배송지 삭제
     @Transactional
-    public void deleteAddress(Long userId, Long userDeliverId){
+    public int deleteAddress(Long userId, Long userDeliverId){
 
         // 해당 Id가 있는지 확인
         UserDelivery userDelivery = userDeliveryRepository.findById(userDeliverId)
@@ -72,6 +74,8 @@ public class UserDeliveryService {
 
         //delivery에서도 해당하는 레코드 삭제
         deliveryRepository.delete(delivery);
+
+        return 1;
     }
 
 

@@ -1,7 +1,9 @@
 package com.minhyuk.shop.service;
 import java.io.IOException;
 import java.security.PublicKey;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,12 +41,23 @@ public class ProductService {
         product.setGender(genderRepository.findById(product.getGender().getId())
         .orElseThrow(() -> new IllegalArgumentException("해당 카테고리가 없습니다.")));
 
+        //생성시간 현재 시간으로 설정
+        product.setRegDate(LocalDateTime.now());
+
         product = productRepository.saveAndFlush(product); // Product 즉시 저장
 
         imageService.addImgs(files, product); // 이미지 저장
 
+        System.out.println(sizeIds);
+
         //사이즈를 중간테이블에 저장
         for(Long sizeId :sizeIds ){
+
+            // System.out.println(sizeRepository.findById(1).orElseThrow(()-> new IllegalArgumentException("해당 사이즈가 없습니다")));
+
+            System.out.println(sizeId);
+            System.out.println(sizeRepository.findById(sizeId));
+
             Size size = sizeRepository.findById(sizeId)
             .orElseThrow(()-> new IllegalArgumentException("해당 사이즈가 없습니다"));
 
@@ -103,10 +116,10 @@ public class ProductService {
         }
         
         //이미지 업데이트
-        if(files != null && files.length > 0){
-            imageService.deleteByProduct(product);
-            imageService.addImgs(files, product);
-        }
+        // if(files != null && files.length > 0){
+        //     imageService.deleteByProduct(product);
+        //     imageService.addImgs(files, product);
+        // }
 
         //저장하고 product의 아이디 값을 리턴 
         product = productRepository.saveAndFlush(product);
@@ -114,13 +127,20 @@ public class ProductService {
 
     }
 
-    //상품 한개 보기
     //카테고리별 상품 보기(성별)
     @Transactional
-    public List<Product> findProductByCategory (Category category, Gender gender){
+    public List<Product> findProductByCategoryAndGender (Category category, Gender gender){
         List<Product> products = productRepository.findByCategoryAndGenderOrderByRegDateDesc(category, gender);
         return products;
     }
+
+    //카테고리별 상품 보기(모든 성별)
+    @Transactional
+    public List<Product> findProductByCategory(Category category){
+        List<Product> products = productRepository.findByCategoryOrderByRegDateDesc(category);
+        return products;
+    }
+
 
     //전체 상품보기 (성별)
     @Transactional
@@ -159,6 +179,7 @@ public class ProductService {
         .orElseThrow(()-> new IllegalArgumentException("해당하는 상품이 없습니다"));
         return product;
     }
+
 
     
 

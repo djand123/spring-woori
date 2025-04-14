@@ -24,5 +24,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // 전체 상품 나열 (성별)
     List<Product> findByGender(Gender gender);
+
+
+
+
 }
 

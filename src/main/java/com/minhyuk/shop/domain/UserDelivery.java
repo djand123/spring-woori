@@ -14,6 +14,7 @@ public class UserDelivery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user_delivery") 
     private Long id;
 
     @ManyToOne

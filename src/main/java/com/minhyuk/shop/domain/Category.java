@@ -19,6 +19,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 카테고리 아이디
+    @Column(name = "id_Category")
     private Long id;
 
     @Column(name = "category_Kind", nullable = false) // 카테고리 종류

@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 @Data
 @Entity(name = "User")
 @NoArgsConstructor  // 기본 생성자
@@ -45,7 +46,6 @@ public class User {
     private String password;       //사용자 이메일
 
     public User orElseThrow(Object object) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
     }
 

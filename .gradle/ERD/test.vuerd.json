@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -378.7598,
-    "scrollLeft": -396.6829,
+    "scrollTop": -516.3333,
+    "scrollLeft": -173,
     "zoomLevel": 0.76,
     "show": 431,
     "database": 4,
@@ -455,14 +455,13 @@
       },
       "BDXmr5uXv6ydNTDMGObSt": {
         "id": "BDXmr5uXv6ydNTDMGObSt",
-        "name": "Imgae",
+        "name": "Image",
         "comment": "이미지",
         "columnIds": [
           "WYDB6HwIkBgQ-_1udKOGX",
           "X5rAC__kghNYYMUKV2Ow-",
           "B14Viv0h31J66BJakXwC0",
-          "OwSUzKXj9D7TeDD6hLztr",
-          "xUWsSYMqqY_-ldXucnLj5"
+          "OwSUzKXj9D7TeDD6hLztr"
         ],
         "seqColumnIds": [
           "WYDB6HwIkBgQ-_1udKOGX",
@@ -482,7 +481,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1744010706624,
+          "updateAt": 1744633446930,
           "createAt": 1742538562845
         }
       }
@@ -2774,7 +2773,7 @@
             "X5rAC__kghNYYMUKV2Ow-"
           ],
           "x": 715.8007,
-          "y": 807.593,
+          "y": 795.593,
           "direction": 1
         },
         "meta": {
@@ -3869,7 +3868,7 @@
       1742538562844,
       -1,
       {
-        "name": 1742540161067,
+        "name": 1744633364733,
         "comment": 1742538594185
       }
     ],
@@ -3969,7 +3968,7 @@
     "xUWsSYMqqY_-ldXucnLj5": [
       "tableColumnEntities",
       1742540876489,
-      -1,
+      1744633446929,
       {
         "name": 1742540880124,
         "dataType": 1742873370026,

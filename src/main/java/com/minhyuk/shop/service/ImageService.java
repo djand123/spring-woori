@@ -54,68 +54,118 @@ public class ImageService {
     }
 
     //이미지 등록하고 저장
+    // public void addImgs(MultipartFile[] files, Product product) throws IOException{
+    //     //파일 경로
+    //     // String dirPath = "C:/DEV_ENV/VS_CODE/workspace/shop/img/"+product.getId()+"/";
+
+    //     //상대 경로로 파일 경로 설정
+    //     String dirPath = uploadDir + product.getId() + "/";
+
+    //     //files의 수만큼 반복
+    //     for(MultipartFile file: files){
+    //         if(file.isEmpty()){
+    //             continue;
+    //         }
+
+    //         //파일 이름
+    //         String fileName = UUID.randomUUID().toString()+"_"+file.getOriginalFilename();
+
+    //         //파일 저장
+    //         Path path = Paths.get(dirPath + fileName);
+
+    //         System.out.println(file);
+    //         System.out.println(path);
+    //         System.out.println("현재 디렉토리: " + Paths.get(".").toAbsolutePath().normalize());
+
+
+
+    //         Files.write(path, file.getBytes());
+
+    //         //img 객체 생성 및 저장
+    //         Image image = Image.builder()
+    //                             .name(fileName)
+    //                             .dir(dirPath)           // 파일경로 저장
+    //                             .product(product)
+    //                             .build();
+    //          imageRepository.save(image);
+    //     }   
+    // }
+
     public void addImgs(MultipartFile[] files, Product product) throws IOException{
-        //파일 경로
-        // String dirPath = "C:/DEV_ENV/VS_CODE/workspace/shop/img/"+product.getId()+"/";
+        //저장 폴더 경로
+        String uploadPath = Paths.get(uploadDir).toAbsolutePath().toString();
+        System.out.println(uploadPath);
 
-        //상대 경로로 파일 경로 설정
-        String dirPath = uploadDir + product.getId() + "/";
+        // 디렉토리가 없으면 생성
+        Files.createDirectories(Paths.get(uploadPath));
 
-        //files의 수만큼 반복
         for(MultipartFile file: files){
-            if(file.isEmpty()){
-                continue;
-            }
+            if(file.isEmpty()) continue;
 
-            //파일 이름
-            String fileName = UUID.randomUUID().toString()+"_"+file.getOriginalFilename();
+            //파일이름 생성
+            String originName = file.getOriginalFilename();
+            String safeName = originName.replaceAll("[\\\\/:*?\"<>|]", "");
+            String fileName = UUID.randomUUID()+"_"+safeName;
 
-            //파일 저장
-            Path path = Paths.get(dirPath + fileName);
-            Files.write(path, file.getBytes());
+            System.out.println(fileName);
 
-            //img 객체 생성 및 저장
+            //저장
+            Path fulPath = Paths.get(uploadPath, fileName);
+            Files.write(fulPath, file.getBytes());
+
+            String url = "/uploads/images/" + fileName;
+
             Image image = Image.builder()
-                                .name(fileName)
-                                .dir(dirPath)           // 파일경로 저장
-                                .product(product)
-                                .build();
-             imageRepository.save(image);
-        }   
-    }
+                .name(fileName)
+                .url(url)
+                .product(product)
+                .build();
 
-    //이미지 삭제
-    public void delImage(Image image){
+            imageRepository.save(image);
 
-        String saveDir = new File(uploadDir).getAbsolutePath(); // 상대경로를 절대경로로 변환
-
-
-        File f = new File(saveDir, image.getName());
-
-        if(f.exists()){
-            if (f.delete()) {
-                System.out.println("파일 삭제 완료");
-            }else{
-                System.out.println("파일 삭제 실패");
-            }
-        }else{
-            System.out.println("파일이 존재하지 않습니다.");
         }
+
+
+
+
 
     }
 
-    @Transactional
-    public void deleteByProduct(Product product){
-        List<Image> images = imageRepository.findByProduct(product);
-        for(Image image : images){
-            File file = new File(image.getDir(), image.getName());
-            if(file.exists()){
-                file.delete();
-            }
-        }
+
+
+
+    // //이미지 삭제
+    // public void delImage(Image image){
+
+    //     String saveDir = new File(uploadDir).getAbsolutePath(); // 상대경로를 절대경로로 변환
+
+
+    //     File f = new File(saveDir, image.getName());
+
+    //     if(f.exists()){
+    //         if (f.delete()) {
+    //             System.out.println("파일 삭제 완료");
+    //         }else{
+    //             System.out.println("파일 삭제 실패");
+    //         }
+    //     }else{
+    //         System.out.println("파일이 존재하지 않습니다.");
+    //     }
+
+    // }
+
+    // @Transactional
+    // public void deleteByProduct(Product product){
+    //     List<Image> images = imageRepository.findByProduct(product);
+    //     for(Image image : images){
+    //         File file = new File(image.getDir(), image.getName());
+    //         if(file.exists()){
+    //             file.delete();
+    //         }
+    //     }
         
-        imageRepository.deleteByProduct(product);
-    }
+    //     imageRepository.deleteByProduct(product);
+    // }
 
     
 

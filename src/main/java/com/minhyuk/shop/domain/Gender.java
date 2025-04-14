@@ -21,7 +21,10 @@ public class Gender {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Gender")
     private Long id;    //성별 아이디
+
+    
 
     @Column(name = "gender_Kind", nullable = false)
     private String kind; //성별 종류

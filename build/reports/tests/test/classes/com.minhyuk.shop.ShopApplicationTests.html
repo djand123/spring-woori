@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.683s</div>
+<div class="counter">0.468s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.683s</td>
+<td class="success">0.468s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>15:37:13.931 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.minhyuk.shop.ShopApplicationTests]: ShopApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:37:14.054 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.minhyuk.shop.ShopApplication for test class com.minhyuk.shop.ShopApplicationTests
+<pre>13:09:19.484 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.minhyuk.shop.ShopApplicationTests]: ShopApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:09:19.605 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.minhyuk.shop.ShopApplication for test class com.minhyuk.shop.ShopApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -99,18 +99,18 @@
 
 ?[32m :: Spring Boot :: ?[39m              ?[2m (v3.4.3)?[0;39m
 
-?[2m2025-03-25T15:37:14.574+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m Starting ShopApplicationTests using Java 17.0.14 with PID 12252 (started by djand in C:\DEV_ENV\VS_CODE\workspace\shop)
-?[2m2025-03-25T15:37:14.576+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m No active profile set, falling back to 1 default profile: &quot;default&quot;
-?[2m2025-03-25T15:37:15.226+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-?[2m2025-03-25T15:37:15.247+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
-?[2m2025-03-25T15:37:15.681+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Starting...
-?[2m2025-03-25T15:37:15.962+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.pool.HikariPool       ?[0;39m ?[2m:?[0;39m HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b6141f0
-?[2m2025-03-25T15:37:15.966+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Start completed.
-?[2m2025-03-25T15:37:16.033+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.hibernate.jpa.internal.util.LogHelper ?[0;39m ?[2m:?[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
-?[2m2025-03-25T15:37:16.111+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36morg.hibernate.Version                   ?[0;39m ?[2m:?[0;39m HHH000412: Hibernate ORM core version 6.6.8.Final
-?[2m2025-03-25T15:37:16.171+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.h.c.internal.RegionFactoryInitiator   ?[0;39m ?[2m:?[0;39m HHH000026: Second-level cache disabled
-?[2m2025-03-25T15:37:16.598+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.s.o.j.p.SpringPersistenceUnitInfo     ?[0;39m ?[2m:?[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
-?[2m2025-03-25T15:37:16.759+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36morg.hibernate.orm.connections.pooling   ?[0;39m ?[2m:?[0;39m HHH10001005: Database info:
+?[2m2025-04-10T13:09:20.194+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m Starting ShopApplicationTests using Java 17.0.14 with PID 19844 (started by djand in C:\DEV_ENV\VS_CODE\workspace\shop)
+?[2m2025-04-10T13:09:20.195+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m No active profile set, falling back to 1 default profile: &quot;default&quot;
+?[2m2025-04-10T13:09:20.867+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+?[2m2025-04-10T13:09:20.956+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Finished Spring Data repository scanning in 79 ms. Found 13 JPA repository interfaces.
+?[2m2025-04-10T13:09:21.443+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Starting...
+?[2m2025-04-10T13:09:21.614+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.pool.HikariPool       ?[0;39m ?[2m:?[0;39m HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f758e4f
+?[2m2025-04-10T13:09:21.616+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Start completed.
+?[2m2025-04-10T13:09:21.685+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.hibernate.jpa.internal.util.LogHelper ?[0;39m ?[2m:?[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+?[2m2025-04-10T13:09:21.761+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36morg.hibernate.Version                   ?[0;39m ?[2m:?[0;39m HHH000412: Hibernate ORM core version 6.6.8.Final
+?[2m2025-04-10T13:09:21.811+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.h.c.internal.RegionFactoryInitiator   ?[0;39m ?[2m:?[0;39m HHH000026: Second-level cache disabled
+?[2m2025-04-10T13:09:22.148+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.s.o.j.p.SpringPersistenceUnitInfo     ?[0;39m ?[2m:?[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+?[2m2025-04-10T13:09:22.247+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36morg.hibernate.orm.connections.pooling   ?[0;39m ?[2m:?[0;39m HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.36
@@ -118,10 +118,17 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-?[2m2025-03-25T15:37:17.172+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.h.e.t.j.p.i.JtaPlatformInitiator      ?[0;39m ?[2m:?[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-?[2m2025-03-25T15:37:17.178+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mj.LocalContainerEntityManagerFactoryBean?[0;39m ?[2m:?[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
-?[2m2025-03-25T15:37:17.338+09:00?[0;39m ?[33m WARN?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mJpaBaseConfiguration$JpaWebConfiguration?[0;39m ?[2m:?[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-?[2m2025-03-25T15:37:17.889+09:00?[0;39m ?[32m INFO?[0;39m ?[35m12252?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m Started ShopApplicationTests in 3.676 seconds (process running for 5.258)
+?[2m2025-04-10T13:09:23.198+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mo.h.e.t.j.p.i.JtaPlatformInitiator      ?[0;39m ?[2m:?[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+?[2m2025-04-10T13:09:23.201+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mj.LocalContainerEntityManagerFactoryBean?[0;39m ?[2m:?[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+?[2m2025-04-10T13:09:23.690+09:00?[0;39m ?[33m WARN?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mJpaBaseConfiguration$JpaWebConfiguration?[0;39m ?[2m:?[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+?[2m2025-04-10T13:09:23.725+09:00?[0;39m ?[33m WARN?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36m.s.s.UserDetailsServiceAutoConfiguration?[0;39m ?[2m:?[0;39m 
+
+Using generated security password: 28d841c9-2099-4604-a4f1-70789b21930d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+?[2m2025-04-10T13:09:23.732+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mr$InitializeUserDetailsManagerConfigurer?[0;39m ?[2m:?[0;39m Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+?[2m2025-04-10T13:09:24.371+09:00?[0;39m ?[32m INFO?[0;39m ?[35m19844?[0;39m ?[2m--- [SHOP] [    Test worker] ?[0;39m?[36mcom.minhyuk.shop.ShopApplicationTests   ?[0;39m ?[2m:?[0;39m Started ShopApplicationTests in 4.563 seconds (process running for 6.25)
 </pre>
 </span>
 </div>
@@ -133,7 +140,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at 2025. 3. 25. 오후 3:37:18</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at 2025. 4. 10. 오후 1:09:25</p>
 </div>
 </div>
 </body>
