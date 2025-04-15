@@ -28,6 +28,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Product")
     private Long id;                             // 상품 id
 
     @ManyToOne

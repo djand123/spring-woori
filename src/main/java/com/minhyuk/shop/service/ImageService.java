@@ -91,6 +91,7 @@ public class ImageService {
     //     }   
     // }
 
+    //이미지 저장하고 등록(확인)
     public void addImgs(MultipartFile[] files, Product product) throws IOException{
         //저장 폴더 경로
         String uploadPath = Paths.get(uploadDir).toAbsolutePath().toString();
@@ -154,18 +155,18 @@ public class ImageService {
 
     // }
 
-    // @Transactional
-    // public void deleteByProduct(Product product){
-    //     List<Image> images = imageRepository.findByProduct(product);
-    //     for(Image image : images){
-    //         File file = new File(image.getDir(), image.getName());
-    //         if(file.exists()){
-    //             file.delete();
-    //         }
-    //     }
+    @Transactional
+    public void deleteByProduct(Product product){
+        List<Image> images = imageRepository.findByProduct(product);
+        for(Image image : images){
+            File file = new File(image.getName());
+            if(file.exists()){
+                file.delete();
+            }
+        }
         
-    //     imageRepository.deleteByProduct(product);
-    // }
+        imageRepository.deleteByProduct(product);
+    }
 
     
 

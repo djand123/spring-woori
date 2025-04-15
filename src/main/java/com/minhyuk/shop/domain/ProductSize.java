@@ -22,6 +22,7 @@ public class ProductSize {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Product_Size")
     private Long id;                 // 상품 사이즈 아이디
 
     @ManyToOne

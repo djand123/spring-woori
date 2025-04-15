@@ -70,11 +70,21 @@ public class ProductService {
         return product.getId();
     }
 
-    //상품 삭제
+    //삭제하기
     @Transactional
-    public void delete(Long productId){
-        productRepository.deleteById(productId);
+    public boolean delete(Long productId){
+
+    Product product = productRepository.findById(productId).orElseThrow(()-> new IllegalArgumentException("해당하는 상품이 없음"));
+
+    if (!productRepository.existsById(productId)) {
+        return false;
     }
+    imageService.deleteByProduct(product);  
+    productSizeRepository.deleteByProduct(product);
+    productRepository.deleteById(productId);
+    return true;
+}
+
 
     // 상품 수정
     @Transactional
@@ -89,7 +99,7 @@ public class ProductService {
         product.setPrice(updateProduct.getPrice());
         product.setInfo(updateProduct.getInfo());
         product.setQuantity(updateProduct.getQuantity());
- 
+
         // 카테고리 유효성 검증과 설정
         if(updateProduct.getCategory() != null){
             product.setCategory(categoryRepository.findById(updateProduct.getCategory().getId())
@@ -116,10 +126,10 @@ public class ProductService {
         }
         
         //이미지 업데이트
-        // if(files != null && files.length > 0){
-        //     imageService.deleteByProduct(product);
-        //     imageService.addImgs(files, product);
-        // }
+        if(files != null && files.length > 0){
+            imageService.deleteByProduct(product);
+            imageService.addImgs(files, product);
+        }
 
         //저장하고 product의 아이디 값을 리턴 
         product = productRepository.saveAndFlush(product);

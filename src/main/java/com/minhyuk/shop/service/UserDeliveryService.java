@@ -78,6 +78,24 @@ public class UserDeliveryService {
         return 1;
     }
 
+    //배송지 수정
+    @Transient
+    public UserDelivery update(Long deliveryId, Delivery updateDelivery){
+        UserDelivery userDelivery = userDeliveryRepository.findById(deliveryId)
+        .orElseThrow(()-> new IllegalArgumentException("해당하는 배송지가 없습니다."));
+
+        Delivery delivery = userDelivery.getDelivery();
+
+        //userDelivery에서 수정
+
+        //delivery에서 수정
+        delivery.setName(updateDelivery.getName());
+        delivery.setType(updateDelivery.getType());
+        deliveryRepository.save(delivery);
+
+        return userDelivery;
+    }
+
 
     
 }

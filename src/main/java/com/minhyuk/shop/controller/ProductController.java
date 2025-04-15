@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -37,7 +39,7 @@ public class ProductController {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
 
-    // 최근에 등록된 상품 3개
+    // 최근에 등록된 상품 3개(확인)
     @GetMapping("/top6regDate")
     public ResponseEntity<List<Product>> getRecentProducts(Principal principal){
         if(principal != null){
@@ -49,9 +51,9 @@ public class ProductController {
         }
     }
 
-    //카테고리별 상품 리스트
+    //카테고리별 상품 리스트(확인)
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity <List<Product>> getProductsByCategory(@PathVariable Long categoryId, Principal principal){
+    public ResponseEntity <List<Product>> getProductsByCategory(@PathVariable("categoryId") Long categoryId, Principal principal){
         Category category = categoryRepository.findById(categoryId).orElseThrow(()-> new IllegalArgumentException("해당하는 카테고리 없음"));
         
         if(principal != null){
@@ -63,13 +65,13 @@ public class ProductController {
         }
     }
 
-    //상품 한개 선택해서 조회
+    //상품 한개 선택해서 조회(확인)
     @GetMapping("/{productId}")
-    public ResponseEntity<Product> getProductinfo(@PathVariable Long productId){
+    public ResponseEntity<Product> getProductinfo(@PathVariable("productId") Long productId){
         return ResponseEntity.ok(productService.findproductById(productId));
     }
 
-    //상품 등록하기
+    //상품 등록하기(확인)
     @PostMapping("/create")
     public ResponseEntity<Long> createProduct(
         @RequestPart("product") Product product,
@@ -80,9 +82,28 @@ public class ProductController {
             return ResponseEntity.ok(createdProductId);
     }
 
-    //상품 삭제하기
+    //상품 삭제하기(확인)
+    @DeleteMapping("/delete/{productId}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("productId") Long productId) {
+    boolean deleted = productService.delete(productId);
 
-    //상품 수정하기
+    if (deleted) {
+        return ResponseEntity.ok("상품이 삭제되었습니다.");
+    } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("상품을 찾을 수 없습니다.");
+    }
+}
+
+    //상품 수정하기(확인)
+    @PutMapping("/update/{productId}")
+    public ResponseEntity<Long> updateProduct(
+        @PathVariable("productId") Long productId,
+        @RequestPart("product") Product product,
+        @RequestPart("files") MultipartFile[] files,
+        @RequestParam("sizeIds") List<Long> sizeIds) throws IOException{
+
+        return ResponseEntity.ok(productService.update(productId, product, files, sizeIds));
+    }
     
 
     
