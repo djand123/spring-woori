@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,11 +21,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "OrderInfo")
+@Entity
+@Table(name = "orderinfo")
 public class OrderInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Order")
     private Long id;                     // 주문 아이디
 
     @ManyToOne
@@ -49,10 +52,8 @@ public class OrderInfo {
     @Column(nullable = false)
     private String name;                        //주문자이름
 
-    @Column(nullable = false)
+    @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;                 //주문자 핸드폰 번호 
-
-
 
 
 

@@ -19,6 +19,7 @@ public class Status {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Status")
     private Long id;                         // 배송상태 아이디
 
     @Column(nullable = false)
